@@ -17,6 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from testcodecov.calculator.views import AddView, DivideView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('add/', AddView.as_view(), name='add'),
+    path('divide/', DivideView.as_view(), name='divide'),
 ]
