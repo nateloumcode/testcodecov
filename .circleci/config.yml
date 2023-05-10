@@ -47,6 +47,29 @@ jobs:
           command: |
             . venv/bin/activate
             mutmut run
+      - restore_cache:
+          keys:
+            - node-v1-{{ checksum "frontend/package-lock.json" }}
+            - node-v1-
+      - run:
+          name: Install Node.js dependencies
+          command: |
+            cd frontend
+            npm ci
+      - save_cache:
+          paths:
+            - ./frontend/node_modules
+          key: node-v1-{{ checksum "frontend/package-lock.json" }}
+      - run:
+          name: Run React tests
+          command: |
+            cd frontend
+            npm test -- --watchAll=false
+      - run:
+          name: Build React app
+          command: |
+            cd frontend
+            npm run build
 workflows:
   version: 2
   build-deploy:
