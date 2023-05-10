@@ -37,6 +37,16 @@ jobs:
             coverage run --source=. manage.py test
             coverage xml
             codecov
+      - run:
+          name: Install Mutmut
+          command: |
+            . venv/bin/activate
+            pip install mutmut
+      - run:
+          name: Run Mutmut
+          command: |
+            . venv/bin/activate
+            mutmut run
 workflows:
   version: 2
   build-deploy:
