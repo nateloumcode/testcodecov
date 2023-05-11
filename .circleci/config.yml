@@ -46,7 +46,7 @@ jobs:
           name: Run Mutmut
           command: |
             . venv/bin/activate
-            mutmut run
+            mutmut run --CI
       - restore_cache:
           keys:
             - node-v1-{{ checksum "frontend/package-lock.json" }}
