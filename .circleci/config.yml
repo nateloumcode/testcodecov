@@ -28,6 +28,7 @@ jobs:
           name: Run tests
           command: |
             . venv/bin/activate
+            python -m playwright install --with-deps
             python manage.py test
       - run:
           name: Collect coverage
