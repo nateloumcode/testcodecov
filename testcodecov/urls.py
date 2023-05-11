@@ -20,11 +20,12 @@ from django.urls import path
 from django.views.generic import TemplateView
 from django.conf.urls.static import static
 
-from testcodecov.calculator.views import AddView, DivideView
+from testcodecov.calculator.views import AddView, DivideView, ExponentView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('add/', AddView.as_view(), name='add'),
     path('divide/', DivideView.as_view(), name='divide'),
+    path('raise/', ExponentView.as_view(), name='raise'),
     path("", TemplateView.as_view(template_name="index.html")),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
