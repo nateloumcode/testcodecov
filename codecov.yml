@@ -1,0 +1,9 @@
+coverage:
+  status:
+    project:
+      default:
+        target: auto # We want code coverage to always increase
+        threshold: 0%
+        branches:
+          - main
+        only_pulls: false
