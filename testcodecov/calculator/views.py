@@ -29,7 +29,7 @@ class DivideView(APIView):
         return Response(status=status.HTTP_200_OK, data={ "result": result })
 
 
-class ExponentView(APIView):
+class RaiseView(APIView):
     serializer_class = AddSerializer  # Consider renaming the serializer to a more appropriate name, e.g. ExponentSerializer
 
     def get(self, request):
