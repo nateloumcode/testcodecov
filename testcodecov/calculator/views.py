@@ -3,7 +3,7 @@ from rest_framework import serializers, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from testcodecov.calculator.services import offset, divide, exponentiate
+from testcodecov.calculator.services import add, subtract, divide, exponentiate
 
 
 class OperationSerializer(serializers.Serializer):
@@ -17,7 +17,7 @@ class AddView(APIView):
     def get(self, request):
         a = request.query_params['a']
         b = request.query_params['b']
-        result = offset(a, b)
+        result = add(a, b)
         return Response(status=status.HTTP_200_OK, data={ "result": result })
 
 
@@ -27,7 +27,7 @@ class SubtractView(APIView):
     def get(self, request):
         a = request.query_params['a']
         b = request.query_params['b']
-        result = offset(a, b)
+        result = subtract(a, b)
         return Response(status=status.HTTP_200_OK, data={ "result": result })
 
 
